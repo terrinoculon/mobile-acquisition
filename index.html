@@ -1,0 +1,62 @@
+<html>
+    <head>
+    <style type="text/css">
+        // CSS Content
+        </style>
+</head>
+    <body>
+    <!-- some html elements -->
+    <div id="images"></div>
+    <canvas id="imgCanvas" width="250" height="250"></canvas>
+    <video id="myVideo" width="1280" height="720" autoplay="autoplay" >
+      <source src="res/try.mp4" type="video/mp4">
+	Your browser does not support HTML5 video.
+    </video>
+
+        <script language="JavaScript"  type="text/javascript">
+            var canvas = document.getElementById("imgCanvas");
+	    var context = canvas.getContext("2d");
+	    var vid = document.getElementById("myVideo");
+
+	    function createImageOnCanvas(imageId) {
+	    //canvas.style.display = "block";
+	    //document.getElementById("images").style.overflowY = "hidden";
+	    //var img = new Image(300, 300);
+	    //img.src = document.getElementById(imageId).src;
+	    //context.drawImage(img, (0), (0)); //onload....
+	    }
+
+	    function draw(e) {
+	    var pos = getMousePos(canvas, e);
+	    posx = pos.x;
+	    posy = pos.y;
+	    setInterval(function() {
+            // Erase canvas
+            context.fillStyle = "#666666";
+            context.fillRect(0,0,canvas.width, canvas.height);      
+            // Draw a circle particle on the canvas
+            context.beginPath();
+            context.fillStyle = "#E59420";
+            // After setting the fill style, draw an arc on the canvas
+            context.arc(posx, posy, 10, 0, Math.PI*2, true); 
+            context.closePath();
+            context.fill();
+	    vid.play();
+	    vid.currentTime=(posy/50+50*(posx/50-1))/30;
+	    vid.pause();
+	    
+
+	    }, 30);
+	    }
+	    window.addEventListener('mousemove', draw, false);
+	    
+	    function getMousePos(canvas, evt) {
+	    var rect = canvas.getBoundingClientRect();
+	    return {
+	    x: evt.clientX - rect.left,
+	    y: evt.clientY - rect.top
+	    };
+	    }
+        </script>
+    </body>
+</html>
