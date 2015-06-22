@@ -128,19 +128,25 @@ h2 span {
 			<button class="buttoncl" id="ret">Return</button>
 		</div>
 	</div><script language="JavaScript" type="text/javascript">
-		document.getElementById("ret").onclick = function() {
+	
+var canvas = document.getElementById("imgCanvas");
+
+document.getElementById("ret").onclick = function() {
 	document.getElementById("renderpage").style.display = "none";
 	document.getElementById("joy").style.display = "";
 };
 document.getElementById("toys").onclick = function() {
 	document.getElementById("joy").style.display = "none";
 	document.getElementById("renderpage").style.display = "";
+	canvas.width=250;
+	canvas.height=250;
 };
 document.getElementById("nd2").onclick = function() {
 	document.getElementById("joy").style.display = "none";
 	document.getElementById("renderpage").style.display = "";
+	canvas.width=250;
+	canvas.height=80;
 };
-var canvas = document.getElementById("imgCanvas");
 var context = canvas.getContext("2d");
 var vid = document.getElementById("myVideo");
 
