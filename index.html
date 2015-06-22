@@ -1,20 +1,98 @@
 <html>
     <head>
     <style type="text/css">
-        // CSS Content
+ html 
+ {
+ background-color: #333;
+ 
+ }
+ body{
+max-width: 1200px;
+margin: 0 auto !important;
+float: none !important;
+}
+      h1 {
+  text-align: center;
+  font-family: Montserrat, sans-serif;
+  color: #EEE;
+ margin-top:150px;
+ margin-bottom:150px;
+}
+#photos {
+   /* Prevent vertical gaps */
+   line-height:   0;
+   
+      -webkit-column-gap:   3px;
+ -webkit-column-width: 300px;
+  -moz-column-width: 300px;
+   -moz-column-gap:      3px;
+   column-gap:           3px;
+   column-width: 300px;
+}
+#photos img {
+  /* Just in case there are inline attributes */
+ width :100% ;
+ height: !important;
+}
+.image { 
+   position: relative; 
+   width: 100%; /* for IE 6 */
+}
+
+h2 { 
+   position: absolute; 
+   bottom:0.1%;
+   text-align:center;
+   width: 100%; 
+}
+  h2 span { 
+   color: white; 
+   font: 60%  Montserrat, sans-serif;
+   letter-spacing: -1px;
+   text-align:center;
+   background: rgb(0, 0, 0); /* fallback color */
+   background: rgba(0, 0, 0, 0.5);
+   padding: 10px;
+   width:100%;
+}  
         </style>
 </head>
     <body>
-    <!-- some html elements -->
-    <div id="images"></div>
+<h1>Scene Relighting for Everyone</h1>
+<!-- some html elements -->
+
+     
+ <div  id="joy">
+   <section id="photos">
+     <div class="image"><img id="toys" src="res/toys.png" ><h2><span>Toys</span></h2></div>
+    <div class="image"> <img id="nd1" src="res/nd1.png" ><h2><span>Notre dame </span></h2></div>
+    <div class="image"> <img id="nd2" src="res/nd2.png" ><h2><span>Notre dame specularities</span></h2></div>
+    <div class="image"> <img id="iconograph" src="res/iconograph.png" ><h2><span>Iconograph</span></h2></div>
+    <div class="image"> <img id="hohmann" src="res/hohmann.png" ><h2><span>Hohmann</span></h2></div>
+     
+
+   </section>
+
+    
+  </div>
+<div id="renderpage"  style="display:none">
+   
     <canvas id="imgCanvas" width="250" height="250"></canvas>
     <video id="myVideo"  height="320" autoplay="autoplay" >
       <source src="res/try.mp4" type="video/mp4">
 	Your browser does not support HTML5 video.
     </video>
-
-        <script language="JavaScript"  type="text/javascript">
-            var canvas = document.getElementById("imgCanvas");
+</div>
+<script language="JavaScript"  type="text/javascript">
+  
+	    document.getElementById("toys").onclick = function() {
+            document.getElementById("joy").style.display = "none";
+            document.getElementById("renderpage").style.display = "";};
+	    document.getElementById("nd2").onclick = function() {
+            document.getElementById("joy").style.display = "none";
+            document.getElementById("renderpage").style.display = "";};
+           
+	    var canvas = document.getElementById("imgCanvas");
 	    var context = canvas.getContext("2d");
 	    var vid = document.getElementById("myVideo");
 
@@ -58,5 +136,6 @@
 	    };
 	    }
         </script>
+
     </body>
 </html>
