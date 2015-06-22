@@ -1,157 +1,150 @@
 <html>
     <head>
     <style type="text/css">
- html 
- {
- background-color: #333;
-  font-family: Montserrat, sans-serif;
- }
- body{
-max-width: 1200px;
-margin: 0 auto !important;
-float: none !important;
-}
-      h1 {
-  text-align: center;
-  color: #EEE;
- margin-top:150px;
- margin-bottom:150px;
-}
-#photos {
-   /* Prevent vertical gaps */
-   line-height:   0;
-   
-      -webkit-column-gap:   3px;
- -webkit-column-width: 300px;
-  -moz-column-width: 300px;
-   -moz-column-gap:      3px;
-   column-gap:           3px;
-   column-width: 300px;
-}
-#photos img {
-  /* Just in case there are inline attributes */
- width :100% ;
- height: !important;
-}
-#rendercontainer
-{
-	 margin:0 auto;
-	 position:absolute;
-}
-.image { 
-   position: relative; 
-   width: 100%; /* for IE 6 */
-}
-
-h2 { 
-   position: absolute; 
-   bottom:0.1%;
-   text-align:center;
-   width: 100%; 
-}
-  h2 span { 
-   color: white; 
-   font: 60%;
-   letter-spacing: -1px;
-   text-align:center;
-   background: rgb(0, 0, 0); /* fallback color */
-   background: rgba(0, 0, 0, 0.5);
-   padding: 10px;
-   width:100%;
-}  
- .buttoncl{
-            color: white;
-            border-radius: 4px;
-            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
-              background: rgb(202, 60, 60); /* this is a maroon */
-        }
-
-        </style>
+    html 
+    {
+    	background-color: #333;
+    	font-family: Montserrat, sans-serif;
+    }
+    body
+    {
+    	max-width: 1200px;
+    	margin: 0 auto !important;
+    	float: none !important;
+     }
+     h1
+     {
+     	text-align: center;
+     	color: #EEE;
+     	margin-top:150px;
+     	margin-bottom:150px;
+     }
+     h2
+     {
+     	position: absolute; 
+     	bottom:0.1%;
+     	text-align:center;
+     	width: 100%; 
+     }
+     h2 span
+     {
+     	color: white; 
+     	font: 60%;
+     	letter-spacing: -1px;
+     	text-align:center;
+     	background: rgb(0, 0, 0); /* fallback color */
+     	background: rgba(0, 0, 0, 0.5);
+     	padding: 10px;
+     	width:100%;
+     }
+     #photos
+     {
+     	line-height:   0;
+     	-webkit-column-gap:   3px;
+     	-webkit-column-width: 300px;
+     	-moz-column-width: 300px;
+     	-moz-column-gap:      3px;
+     	column-gap:           3px;
+     	column-width: 300px;
+     }
+     #photos img {
+     	width :100% ;
+     	height:auto;
+     }
+     .rendercontainer
+     {
+     	display:block;
+     	margin-top:150px;
+	position:absolute;
+     }
+     .image
+     {
+     	position: relative; 
+     	width: 100%; /* for IE 6 */
+     }
+     .buttoncl
+     {
+     	color: white;
+     	border-radius: 4px;
+     	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+        background: rgb(202, 60, 60); /* this is a maroon */
+        margin-top:50px;
+     }
+     </style>
 </head>
     <body>
-<h1>Scene Relighting for Everyone</h1>
-<!-- some html elements -->
-
-     
- <div  id="joy">
-   <section id="photos">
-     <div class="image"><img id="toys" src="res/toys.png" ><h2><span>Toys</span></h2></div>
-    <div class="image"> <img id="nd1" src="res/nd1.png" ><h2><span>Notre dame </span></h2></div>
-    <div class="image"> <img id="nd2" src="res/nd2.png" ><h2><span>Notre dame specularities</span></h2></div>
-    <div class="image"> <img id="iconograph" src="res/iconograph.png" ><h2><span>Iconograph</span></h2></div>
-    <div class="image"> <img id="hohmann" src="res/hohmann.png" ><h2><span>Hohmann</span></h2></div>
-     
-
-   </section>
-
-    
-  </div>
-<div id="renderpage"  style="display:none">
-   <div class="rendercontainer">
-    <canvas id="imgCanvas" width="250" height="250"></canvas>
-    <video id="myVideo"  height="320" autoplay="autoplay" >
-      <source src="res/try.mp4" type="video/mp4">
-	Your browser does not support HTML5 video.
-    </video>
-    <br>
-    <button class="buttoncl" id="ret">Return</button>
-    </div>
-</div>
-<script language="JavaScript"  type="text/javascript">
-  	    document.getElementById("ret").onclick = function() {
-            document.getElementById("renderpage").style.display = "none";
-            document.getElementById("joy").style.display = "";};
-	    document.getElementById("toys").onclick = function() {
-            document.getElementById("joy").style.display = "none";
-            document.getElementById("renderpage").style.display = "";};
-	    document.getElementById("nd2").onclick = function() {
-            document.getElementById("joy").style.display = "none";
-            document.getElementById("renderpage").style.display = "";};
-           
+    	<div  id="joy">
+    		<h1>Scene Relighting for Everyone</h1>
+    		<section id="photos">
+    			<div class="image"><img id="toys" src="res/toys.png" ><h2><span>Toys</span></h2></div>
+    			<div class="image"> <img id="nd1" src="res/nd1.png" ><h2><span>Notre dame </span></h2></div>
+    			<div class="image"> <img id="nd2" src="res/nd2.png" ><h2><span>Notre dame specularities</span></h2></div>
+    			<div class="image"> <img id="iconograph" src="res/iconograph.png" ><h2><span>Iconograph</span></h2></div>
+    			<div class="image"> <img id="hohmann" src="res/hohmann.png" ><h2><span>Hohmann</span></h2></div>
+    		</section>
+    	</div>
+    	<div id="renderpage"  style="display:none">
+    		<div class="rendercontainer">
+    			<canvas id="imgCanvas" width="250" height="250"></canvas>
+    			<video id="myVideo"  height="320" autoplay="autoplay" >
+    				<source src="res/try.mp4" type="video/mp4">
+    				Please use a modern browser that supports HTML5 Videos
+    			</video>
+    			<br>
+    			<button class="buttoncl" id="ret">Return</button>
+    		</div>
+    	</div>
+    	<script language="JavaScript"  type="text/javascript">
+  	    document.getElementById("ret").onclick = function()
+  	    {
+  	    	document.getElementById("renderpage").style.display = "none";
+  	    	document.getElementById("joy").style.display = "";
+  	    };
+	    document.getElementById("toys").onclick = function()
+	    {
+	    	document.getElementById("joy").style.display = "none";
+            	document.getElementById("renderpage").style.display = "";
+	    };
+	    document.getElementById("nd2").onclick = function() 
+	    {
+	    	document.getElementById("joy").style.display = "none";
+	    	document.getElementById("renderpage").style.display = "";
+	    };
 	    var canvas = document.getElementById("imgCanvas");
 	    var context = canvas.getContext("2d");
 	    var vid = document.getElementById("myVideo");
 
-	    function createImageOnCanvas(imageId) {
-	    //canvas.style.display = "block";
-	    //document.getElementById("images").style.overflowY = "hidden";
-	    //var img = new Image(300, 300);
-	    //img.src = document.getElementById(imageId).src;
-	    //context.drawImage(img, (0), (0)); //onload....
+	    function createImageOnCanvas(imageId) 
+	    {
 	    }
 
 	    function draw(e) {
-	    var pos = getMousePos(canvas, e);
-	    posx = pos.x;
-	    posy = pos.y;
-	    setInterval(function() {
-            // Erase canvas
-            context.fillStyle = "#666666";
-            context.fillRect(0,0,canvas.width, canvas.height);      
-            // Draw a circle particle on the canvas
-            context.beginPath();
-            context.fillStyle = "#E59420";
-            // After setting the fill style, draw an arc on the canvas
-            context.arc(posx, posy, 10, 0, Math.PI*2, true); 
-            context.closePath();
-            context.fill();
-	    vid.play();
-	    vid.currentTime=(posy/50+50*(posx/50-1))/30;
-	    vid.pause();
-	    
-
-	    }, 100);
+	    	var pos = getMousePos(canvas, e);
+	    	posx = pos.x;
+	    	posy = pos.y;
+	    	setInterval(function() {
+	    		context.fillStyle = "#666666";
+	    		context.fillRect(0,0,canvas.width, canvas.height);      
+	    		context.beginPath();
+	    		context.fillStyle = "#E59420";
+	    		context.arc(posx, posy, 10, 0, Math.PI*2, true); 
+	    		context.closePath();
+	    		context.fill();
+	    		vid.play();
+	    		vid.currentTime=(posy/50+50*(posx/50-1))/30;
+	    		vid.pause();
+	    	},100);
 	    }
 	    window.addEventListener('mousemove', draw, false);
-	    
-	    function getMousePos(canvas, evt) {
-	    var rect = canvas.getBoundingClientRect();
-	    return {
-	    x: evt.clientX - rect.left,
-	    y: evt.clientY - rect.top
-	    };
+	    function getMousePos(canvas, evt) 
+	    {
+	    	var rect = canvas.getBoundingClientRect();
+	    	return
+	    	{
+	    		x: evt.clientX - rect.left,
+	    		y: evt.clientY - rect.top
+	    	};
 	    }
         </script>
-
     </body>
 </html>
